@@ -3,7 +3,7 @@ import org.gradle.plugin.use.PluginDependenciesSpec
 
 @Suppress("MayBeConstant") // Improve perf when changing values
 object Config {
-    private const val kotlinVersion = "1.2.61"
+    private const val kotlinVersion = "1.2.70"
 
     object SdkVersions {
         val compile = 28
@@ -39,7 +39,7 @@ object Config {
         }
 
         object Anko {
-            private const val version = "0.10.5"
+            private const val version = "0.10.6"
 
             val common = "org.jetbrains.anko:anko-common:$version"
             val coroutines = "org.jetbrains.anko:anko-coroutines:$version"
