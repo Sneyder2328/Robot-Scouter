@@ -23,6 +23,7 @@ import com.supercilex.robotscouter.core.ui.ActivityBase
 import com.supercilex.robotscouter.core.ui.addNewDocumentFlags
 import com.supercilex.robotscouter.shared.client.onSignedIn
 import kotlinx.android.synthetic.main.activity_link_receiver.*
+import kotlinx.coroutines.experimental.GlobalScope
 import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.longToast
@@ -36,7 +37,7 @@ internal class LinkReceiverActivity : ActivityBase() {
         progress.show()
         handleModuleInstalls(progress)
 
-        async {
+        GlobalScope.async {
             onSignedIn()
 
             val dynamicLink: PendingDynamicLinkData? =

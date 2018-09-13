@@ -15,6 +15,7 @@ import com.supercilex.robotscouter.server.utils.stopwatch
 import com.supercilex.robotscouter.server.utils.text
 import com.supercilex.robotscouter.server.utils.types.CollectionReference
 import com.supercilex.robotscouter.server.utils.types.FieldValues
+import kotlinx.coroutines.experimental.GlobalScope
 import kotlinx.coroutines.experimental.asPromise
 import kotlinx.coroutines.experimental.async
 import kotlinx.coroutines.experimental.await
@@ -24,7 +25,7 @@ import kotlin.js.Promise
 import kotlin.js.json
 
 fun updateDefaultTemplates(): Promise<*>? {
-    return async {
+    return GlobalScope.async {
         val match = async { defaultTemplates.updateMatchTemplate() }
         val pit = async { defaultTemplates.updatePitTemplate() }
         val empty = async { defaultTemplates.updateEmptyTemplate() }

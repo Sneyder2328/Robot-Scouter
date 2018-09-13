@@ -9,6 +9,7 @@ import com.supercilex.robotscouter.server.utils.toTemplateString
 import com.supercilex.robotscouter.server.utils.types.DocumentSnapshot
 import com.supercilex.robotscouter.server.utils.types.Message
 import com.supercilex.robotscouter.server.utils.types.QuerySnapshot
+import kotlinx.coroutines.experimental.GlobalScope
 import kotlinx.coroutines.experimental.asPromise
 import kotlinx.coroutines.experimental.async
 import kotlinx.coroutines.experimental.await
@@ -19,7 +20,7 @@ fun logUserData(message: Message): Promise<*>? {
     val uid = message.json["uid"] as String
 
     console.log("Logging user data for id: $uid")
-    return async {
+    return GlobalScope.async {
         val teams = async {
             val snapshot = getTeamsQuery(uid).get().await()
             console.log("${snapshot.size} teams:\n" + snapshot.prettyPrintTeams())

@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.`build-scan`
 import org.gradle.kotlin.dsl.version
 import org.gradle.plugin.use.PluginDependenciesSpec
 
@@ -28,7 +27,7 @@ object Config {
 
     object Libs {
         object Kotlin {
-            private const val coroutinesVersion = "0.25.3"
+            private const val coroutinesVersion = "0.26.0"
 
             val common = "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVersion"
             val jvm = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
